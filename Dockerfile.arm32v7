@@ -6,6 +6,6 @@ COPY package*.json ./
 
 RUN npm install --production
 
-COPY app.js ./
+COPY src ./
 
 CMD ["node", "app.js"]

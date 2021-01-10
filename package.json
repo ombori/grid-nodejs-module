@@ -10,5 +10,12 @@
     "dependencies": {
         "azure-iot-device": "^1.11.0",
         "azure-iot-device-mqtt": "^1.11.0"
+    },
+    "devDependencies": {
+        "@ombori/ts-schema": "^2.19.2"
+    },
+    "scripts": {
+        "build": "omg module build",
+        "schema": "npx ts-schema schema.ts build"
     }
 }
