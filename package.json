@@ -16,6 +16,6 @@
     },
     "scripts": {
         "build": "omg module build",
-        "schema": "npx ts-schema schema.ts build"
+        "schema": "mkdir -p build && npx ts-schema schema.ts build"
     }
 }
