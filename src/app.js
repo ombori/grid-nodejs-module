@@ -3,7 +3,7 @@ const { ModuleClient } = require("azure-iot-device");
 
 const delay = n => new Promise(resolve => setTimeout(resolve, n));
 async function main() {
-  const client = await ModuleClient.Client.fromEnvironment(Mqtt.Transport);
+  const client = await ModuleClient.fromEnvironment(Mqtt.Transport);
 
   client.on("error", (err) => console.error('error', err));
 
