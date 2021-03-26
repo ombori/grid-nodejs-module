@@ -1,13 +1,10 @@
 const gridos = require('./gridos');
 
-const { MODULENAME_TEST_SETTING } = process.env;
-
 async function main() {
   const client = await gridos.connect();
 
   // TODO: insert your code here
-
-  console.log('test_setting value is', MODULENAME_TEST_SETTING);
+  console.log('test_setting value is', client.getSetting('test_setting'));
 
   // In this example we send TestModule.Event message every second
   let seq = 0;

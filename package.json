@@ -1,11 +1,7 @@
 {
-    "name": "new-module",
-    "version": "0.0.1",
-    "description": "Azure IoT Edge Node.js module sample project",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Azure/generator-azure-iot-edge-module"
-    },
+    "name": "myorg.my-module-name",
+    "version": "0.1.0",
+    "description": "My module name",
     "license": "MIT",
     "dependencies": {
         "azure-iot-device": "^1.11.0",

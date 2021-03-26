@@ -1,7 +1,7 @@
 const { Mqtt } = require("azure-iot-device-mqtt");
 const { ModuleClient } = require("azure-iot-device");
 
-const { IOTEDGE_DEVICEID } = process.env;
+const { IOTEDGE_DEVICEID, IOTEDGE_MODULEID } = process.env;
 
 if (!IOTEDGE_DEVICEID) {
   console.error('IOTEDGE_DEVICEID not set, m2a and m2m broadcasts will not work');
@@ -10,8 +10,9 @@ if (!IOTEDGE_DEVICEID) {
 const delay = n => new Promise(resolve => setTimeout(resolve, n));
 
 class Module {
-  connect = async () => {
-    this.client = await ModuleClient.fromEnvironment(Mqtt.Transport);
+  async connect() {
+    this.client = await ModuleClient.fromEnvironment(Mqtt);
+    this.eventHandlers = {};
 
     this.client.on("error", (err) => console.error('error', err));
 
@@ -28,7 +29,7 @@ class Module {
     console.log("IoT Hub module client initialized");
   }
 
-  broadcast = (payload) => {
+  broadcast(payload) {
     if (!IOTEDGE_DEVICEID) { return };
     return this.client.invokeMethod(IOTEDGE_DEVICEID, 'GdmAgent', {
       methodName: 'broadcast',
@@ -36,11 +37,11 @@ class Module {
     });
   }
 
-  onMethod = (method, handler) => {
+  onMethod(method, handler) {
+    console.log('registering handler for', method);
     this.client.onMethod(method, async (req, res) => {
       try {
-        const data = JSON.parse(req.payload);
-        const result = await handler(data);
+        const result = await handler(req.payload);
         res.send(200, result);
       } catch (e) {
         console.error(e.toString());
@@ -49,9 +50,12 @@ class Module {
     });
   }
 
-  eventHandlers = {};
-  onEvent = (type, handler) => {
+  onEvent(type, handler) {
     this.eventHandlers[type] = handler;
+  }
+
+  getSetting(name) {
+    return process.env[`${IOTEDGE_MODULEID.toUpperCase()}_${name.toUpperCase()}`];
   }
 }
 
