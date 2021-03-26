@@ -1,8 +1,12 @@
+FROM node:10-slim as pre-build
+COPY package*.json ./
+RUN npm version 0.0.1
+
 FROM node:10-slim
 
 WORKDIR /app/
 
-COPY package*.json ./
+COPY --from=pre-build package*.json ./
 
 RUN npm install --production
 

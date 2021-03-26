@@ -15,7 +15,7 @@
         "@ombori/ts-schema": "^2.19.2"
     },
     "scripts": {
-        "build": "omg module build",
-        "schema": "mkdir -p build && npx ts-schema schema.ts build"
+        "schema": "npx ts-schema schema.ts build/",
+        "build": "mkdir -p build && yarn schema && omg module build"
     }
 }

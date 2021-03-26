@@ -1,9 +1,4 @@
-export type Settings = { enabled: false } | {
-  /**
-   * @title Enabled
-   */
-  enabled: true;
-
+export type Settings = {
   /**
    * @title A test setting
    * @default "Default value"
