@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "module",
     "dependencies": {
-        "@ombori/ga-module": "^2.41.0"
+        "@ombori/ga-module": "^2.41.2"
     },
     "devDependencies": {
         "@ombori/ts-schema": "^2.39.3",

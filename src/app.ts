@@ -1,23 +1,27 @@
-import Module from '@ombori/ga-module';
+import { connect } from '@ombori/ga-module';
 
-const client = await Module.connect();
+// TODO: Update 'name' field in package.json with 'organisation-name.module-name' identifier
+// TODO: Update 'description' field in package.json with module's descriptive name
+
+const module = await connect();
 
 // TODO: insert your code here
-console.log('test_setting value is', client.getSetting('test_setting'));
+console.log('test_setting value is', module.getSetting('test_setting'));
 
 // In this example we send TestModule.Event message every second
 let seq = 0;
 setInterval(() => {
-  client.broadcast({ type: 'TestModule.Event', some: 'data', seq });
+  module.broadcast({ type: 'MyModule.Event', some: 'data', seq });
   seq += 1;
 }, 1000);
 
-// TODO: insert your methods here
-client.onMethod('someMethod', async (payload) => {
+// Example of module method
+module.onMethod('someMethod', async (payload) => {
   console.log('Received method call', payload);
   return 'hello there';
 })
 
-client.onEvent('Test.Event', async (data) => {
+// Example of an event coming from app or another module
+module.onEvent('Test.Event', async (data) => {
   console.log('Received event', data);
 });
