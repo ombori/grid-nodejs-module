@@ -2,7 +2,7 @@
     "name": "myorg.my-module-name",
     "version": "0.1.0",
     "description": "My module name",
-    "license": "MIT",
+    "license": "UNLICENSED",
     "type": "module",
     "dependencies": {
         "@ombori/ga-module": "^2.41.2"
