@@ -4,6 +4,7 @@
     "description": "My module name",
     "license": "UNLICENSED",
     "type": "module",
+    "private": true,
     "dependencies": {
         "@ombori/ga-module": "^2.41.2"
     },
