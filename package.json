@@ -6,7 +6,7 @@
     "type": "module",
     "private": true,
     "dependencies": {
-        "@ombori/ga-module": "^2.41.2"
+        "@ombori/ga-module": "^2.41.9"
     },
     "devDependencies": {
         "@ombori/ts-schema": "^2.39.3",
