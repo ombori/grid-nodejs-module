@@ -2,6 +2,8 @@ import { connect } from '@ombori/ga-module';
 
 // TODO: Update 'name' field in package.json with 'organisation-name.module-name' identifier
 // TODO: Update 'description' field in package.json with module's descriptive name
+// TODO: Update 'container-registry' field in package.json with your container registry hostname
+// TODO: Create .env file with <your-registry>_USERNAME and <your-registry>_PASSWORD values
 
 const module = await connect();
 

@@ -2,6 +2,7 @@
     "name": "myorg.my-module-name",
     "version": "0.1.0",
     "description": "My module name",
+    "container-registry": "omborigridregistry.azurecr.io",
     "license": "UNLICENSED",
     "type": "module",
     "private": true,
