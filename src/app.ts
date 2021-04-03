@@ -27,3 +27,15 @@ module.onMethod('someMethod', async (payload) => {
 module.onEvent('Test.Event', async (data) => {
   console.log('Received event', data);
 });
+
+// Example of MQTT topic subscription
+module.subscribe('ombori', (data, topic) => {
+  console.log(`${topic}> `, data.toString());
+});
+
+// Example of publishing to MQTT topic
+let mqttSeq = 0;
+setInterval(() => {
+  module.publish('ombori', `hello ${mqttSeq}`);
+  mqttSeq += 1;
+}, 1000);
