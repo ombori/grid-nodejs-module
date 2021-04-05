@@ -13,7 +13,7 @@ console.log('test_setting value is', module.getSetting('test_setting'));
 // In this example we send TestModule.Event message every second
 let seq = 0;
 setInterval(() => {
-  module.broadcast({ type: 'MyModule.Event', some: 'data', seq });
+  module.broadcast('MyModule.Event', { some: 'data', seq });
   seq += 1;
 }, 1000);
 

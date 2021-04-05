@@ -107,10 +107,10 @@
     events "^3.0.0"
     tslib "^2.0.0"
 
-"@ombori/ga-module@^2.43.1":
-  version "2.43.1"
-  resolved "https://registry.yarnpkg.com/@ombori/ga-module/-/ga-module-2.43.1.tgz#5856d0f724df9bb5a3f83048cb8a3ef731e67e5d"
-  integrity sha512-R/37PikAAOdnBsqPu1LD9M3sQbShwXbjbhq+QpjrubszSqh+SO4hy98M2GPcCWq3i3r+f5A2r3h9Rf28iVoulg==
+"@ombori/ga-module@^2.46.4":
+  version "2.46.4"
+  resolved "https://registry.yarnpkg.com/@ombori/ga-module/-/ga-module-2.46.4.tgz#465b7837a7a6725244ce0e9359640f9a9b2f0490"
+  integrity sha512-fBk3F7D1YwsvkpRhRjiyKcjxQ+5g1MTI15BppTKoC0KDvKEtxQsmNAF8FiwiQNWwsWc7N3BYzpfRTwMsj0LJuA==
   dependencies:
     azure-iot-device "^1.17.3"
     azure-iot-device-mqtt "^1.15.3"
