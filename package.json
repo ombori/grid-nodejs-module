@@ -7,7 +7,7 @@
     "type": "module",
     "private": true,
     "dependencies": {
-        "@ombori/ga-module": "^2.46.4"
+        "@ombori/ga-module": "^2.50.4"
     },
     "devDependencies": {
         "@ombori/ts-schema": "^2.39.3",
