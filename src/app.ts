@@ -25,7 +25,7 @@ setInterval(() => {
 }, 1000);
 
 // Example of an event coming from app or another module
-module.onEvent('Test.Event', async (data) => {
+module.onEvent('MyModule.Event', async (data) => {
   console.log('Received event', data);
 });
 
