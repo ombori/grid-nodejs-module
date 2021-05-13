@@ -15,6 +15,9 @@
     },
     "scripts": {
         "schema": "npx ts-schema src/schema.ts build/",
-        "build": "mkdir -p build && tsc && yarn schema && omg module build"
+        "build": "mkdir -p build && tsc && yarn schema && omg module build",
+        "deploy": "omg module deploy",
+        "deploy-watch": "omg module deploy -w",
+        "publish": "omg module publish"
     }
 }
