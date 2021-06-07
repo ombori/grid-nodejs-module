@@ -18,6 +18,6 @@
         "build": "mkdir -p build && tsc && yarn schema && omg module build",
         "deploy": "omg module deploy",
         "deploy-watch": "omg module deploy -w",
-        "publish": "omg module publish"
+        "pub": "omg module publish"
     }
 }
