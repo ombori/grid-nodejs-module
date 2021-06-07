@@ -10,6 +10,7 @@ import { Settings } from './schema.js';
 const module = await connect<Settings>();
 
 // TODO: insert your code here
+console.log('Module is started');
 
 // Example of working with module settings
 console.log(`testSetting value is ${module.settings.testSetting}`);
@@ -20,12 +21,15 @@ module.onSettings((settings: Settings) => {
 // In this example we send TestModule.Event message every second
 let seq = 0;
 setInterval(() => {
-  module.broadcast('MyModule.Event', { some: 'data', seq });
+  module.publish('MyModule.Event', { some: 'data', seq });
   seq += 1;
+
+  // Example of module telemetry usage
+  module.updateTelemetry({ messagesSent: seq });
 }, 1000);
 
 // Example of an event coming from app or another module
-module.onEvent('MyModule.Event', async (data) => {
+module.subscribe('MyModule.Event', async (data) => {
   console.log('Received event', data);
 });
 
@@ -36,13 +40,16 @@ module.onMethod('someMethod', async (payload) => {
 })
 
 // Example of MQTT topic subscription
-module.subscribe('ombori', (data, topic) => {
+module.subscribeMqtt('ombori', (data, topic) => {
   console.log(`${topic}> `, data.toString());
 });
 
 // Example of publishing to MQTT topic
 let mqttSeq = 0;
 setInterval(() => {
-  module.publish('ombori', `hello ${mqttSeq}`);
+  module.publishMqtt('ombori', `hello ${mqttSeq}`);
   mqttSeq += 1;
+
+  // Another example of module telemetry
+  module.updateTelemetry({ mqttMessagesSent: mqttSeq });
 }, 1000);
