@@ -8,7 +8,7 @@ WORKDIR /app/
 
 COPY --from=pre-build package*.json ./
 
-RUN npm install --production
+RUN npm install --production && rm -rf /root/.npm
 
 COPY dist ./
 
